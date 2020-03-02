@@ -6,8 +6,8 @@ import (
 )
 
 var testConfig Config = Config{
-	configUrl:       ConfigContentFabricV3.configUrl,
-	authStaticToken: "NOTAREALTOKEN",
+	ConfigUrl:       ConfigContentFabric.ConfigUrl,
+	AuthStaticToken: "NOTAREALTOKEN",
 }
 var testHash = "hq__Kx352AFDyot4hsTGUzAhhkXwkUDSXJoUk7X7mxnAxXhagay6RPRtgE1um1yaJz12xPemgrkfta"
 

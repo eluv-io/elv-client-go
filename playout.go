@@ -11,17 +11,18 @@ const (
 )
 
 type Config struct {
-	configUrl       string
-	authStaticToken string
+	ConfigUrl       string
+	AuthStaticToken string
 }
 
-var ConfigContentFabricV3 Config = Config{configUrl: "https://main.net955305.contentfabric.io/config"}
-var ConfigDemoContentFabricV3 Config = Config{configUrl: "https://demov3.net955210.contentfabric.io/config"}
+var ConfigContentFabricV3 Config = Config{ConfigUrl: "https://main.net955305.contentfabric.io/config"}
+var ConfigDemoContentFabricV3 Config = Config{ConfigUrl: "https://demov3.net955210.contentfabric.io/config"}
+var ConfigContentFabric Config = ConfigContentFabricV3 // Latest version
 
 func PlayoutStaticUrl(c Config, qihot string) (string, string, error) {
 	url, err := c.staticUrl()
-	urlDash := url + "/q/" + qihot + playoutPath + defaultOffering + dashClear + "?authorization=" + c.authStaticToken
-	urlHls := url + "/q/" + qihot + playoutPath + defaultOffering + hlsClear + "?authorization=" + c.authStaticToken
+	urlDash := url + "/q/" + qihot + playoutPath + defaultOffering + dashClear + "?authorization=" + c.AuthStaticToken
+	urlHls := url + "/q/" + qihot + playoutPath + defaultOffering + hlsClear + "?authorization=" + c.AuthStaticToken
 	return urlDash, urlHls, err
 }
 
@@ -30,7 +31,7 @@ func PlayoutOptionsUrl() {
 }
 
 func (c *Config) staticUrl() (string, error) {
-	u, err := url.Parse(c.configUrl)
+	u, err := url.Parse(c.ConfigUrl)
 	if err != nil {
 		return "", err
 	}
